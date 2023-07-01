@@ -22,10 +22,10 @@ def config_logfile(app: Flask) -> None:
     path = f'{app.instance_path}/{LOG_DIR}/{filename}'
 
     # make log path if it doesn't exist
-    if not os.path.exists(path):
+    if not os.path.exists(os.path.dirname(path)):
         os.makedirs(os.path.dirname(path))
 
     file_handler = FileHandler(path)
-    # file_handler.setFormatter(app.logger.handlers[0].formatter)
+    file_handler.setFormatter(app.logger.handlers[0].formatter)
 
     app.logger.addHandler(file_handler)
