@@ -1,0 +1,21 @@
+[project]
+name = "schoolr-api"
+version = "1.0.0"
+dependencies = [
+    "flask-restful",
+    "flask-pymongo",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["schoolr_api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["schoolr_api"]
